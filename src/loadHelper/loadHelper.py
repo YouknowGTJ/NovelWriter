@@ -1,4 +1,3 @@
-import numpy as np
 import re
 import pickle
 import os
@@ -25,7 +24,7 @@ def load(path):
     return ret
 
 
-def process():
+def loadProcess():
     if readProcessedFlag():
         return loadPreProcess()
     else:
@@ -63,8 +62,8 @@ def createLookUpTable(inputData):
 
 
 def createSymbolsTable():
-    symbols = set(['。', '，', '“', "”", '；', '！', '？', '（', '）', '——', '\n', '.'])
-    tokens = ["P", "C", "Q", "T", "S", "E", "M", "I", "O", "D", "R", "L"]
+    symbols = set(['。', '，', '“', "”", '；', '！', '？', '（', '）', '——', '\n', '.','~','*'])
+    tokens = ["P", "C", "Q", "T", "S", "E", "M", "I", "O", "D", "R", "L","X","Y"]
     return dict(zip(symbols, tokens))
 
 
@@ -86,11 +85,11 @@ def writeProcessedFlag():
 
 
 if __name__ == '__main__':
-    dataSet, charToIntTable, intToCharTable, symbolTable = process()
-    print(dataSet)
-    print("\r\n\r\n")
-    print(charToIntTable)
-    print("\r\n\r\n")
-    print(intToCharTable)
-    print("\r\n\r\n")
-    print(symbolTable)
+    dataSet, charToIntTable, intToCharTable, symbolTable = loadProcess()
+    #print(dataSet)
+    # print("\r\n\r\n")
+    # print(charToIntTable)
+    # print("\r\n\r\n")
+    # print(intToCharTable)
+    # print("\r\n\r\n")
+    # print(symbolTable)
